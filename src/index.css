@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,52 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+/* Style the table container */
+.table-container {
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
 }
+
+/* Basic table styles */
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+/* Header row styles */
+.inventory-table thead tr {
+  background-color: #9bbef3;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Cell styles */
+.inventory-table th,
+.inventory-table td {
+  border: 1px solid #bad2f0;
+  padding: 10px;
+}
+
+/* Image styling */
+.table-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Alternate row colors for readability */
+.inventory-table tbody tr:nth-child(even) {
+  background-color: #eef1f6;
+}
+
+/* Hover effect for rows */
+.inventory-table tbody tr:hover {
+  background-color: #dbeafa;
+  cursor: pointer;
+}
+
