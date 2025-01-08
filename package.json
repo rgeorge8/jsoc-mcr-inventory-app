@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
-    "react": "^16.20.0",
-    "react-dom": "^16.20.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1"
   },
   "scripts": {
