@@ -1,6 +1,8 @@
 import React from 'react';
 import './index.css';
 
+
+
 function inventoryTable() {
   return (
     <div className="table-container">

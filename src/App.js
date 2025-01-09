@@ -1,82 +1,6 @@
-// import React from 'react';
-// import './index.css';
-
-// function App() {
-//   return (
-//     <div className="table-container">
-//       <table className="inventory-table">
-//         <thead>
-//           <tr>
-//             <th>ID</th>
-//             <th>Image</th>
-//             <th>Quantity</th>
-//             <th>Description</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {/* Sample row */}
-//           <tr>
-//             <td>1</td>
-//             <td>
-//               <img src="https://via.placeholder.com/50" alt="Sample Item" className="table-image" />
-//             </td>
-//             <td>10</td>
-//             <td>Sample description for item 1.</td>
-//           </tr>
-//           {/* Add more rows dynamically here */}
-//           <tr>
-//             <td>2</td>
-//             <td>
-//               <img src="https://via.placeholder.com/50" alt="Sample Item" className="table-image" />
-//             </td>
-//             <td>10</td>
-//             <td>Sample description for item 2.</td>
-//           </tr>
-//           <tr>
-//             <td>3</td>
-//             <td>
-//               <img src="https://via.placeholder.com/50" alt="Sample Item" className="table-image" />
-//             </td>
-//             <td>10</td>
-//             <td>Sample description for item 3.</td>
-//           </tr>
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
-
-
-// import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Login from './login';
-// import Home from './home';
-
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<Login />} />
-//         <Route path="/home" element={<Home />} />
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-
-
-
 import React, { useState } from "react";
 import "./App.css";
 import HomePage from "./home";
-import "./login.css"; // Import the CSS file
 
 
 const App = () => {
@@ -101,6 +25,7 @@ const App = () => {
   };
 
   return (
+    
     <div className="App">
       {!isLoggedIn ? (
         <div className="login-container">
