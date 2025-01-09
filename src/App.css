@@ -38,11 +38,12 @@
 } */
 
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 
 .App {
   text-align: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .login-container {
@@ -73,7 +74,7 @@
 
 button {
   background-color: #007bff;
-  color: white;
+  color: rgb(255, 255, 255);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;

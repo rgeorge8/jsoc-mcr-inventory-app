@@ -76,6 +76,8 @@
 import React, { useState } from "react";
 import "./App.css";
 import HomePage from "./home";
+import "./login.css"; // Import the CSS file
+
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
