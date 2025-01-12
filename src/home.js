@@ -1,15 +1,19 @@
-// import React from "react";
 import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
 import { Link } from "react-router-dom";
 import "./home.css";
 import Header from "./header";
 
-
 const HomePage = () => {
-    const [inventoryData, setInventoryData] = useState([]);
+  const [inventoryData, setInventoryData] = useState([]);
+  const [newItem, setNewItem] = useState({
+    id: "",
+    image: "",
+    quantity: "",
+    description: "",
+  });
 
-      // Load inventory data from localStorage if available
+  // Load inventory data from localStorage if available
   useEffect(() => {
     const savedData = localStorage.getItem("inventoryData");
     if (savedData) {
@@ -32,12 +36,34 @@ const HomePage = () => {
     XLSX.writeFile(workbook, filename);
   };
 
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewItem({
+      ...newItem,
+      [name]: value,
+    });
+  };
+
+  // Add new item to the inventory and update localStorage
+  const handleAddItem = () => {
+    if (!newItem.id || !newItem.quantity || !newItem.description) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    const updatedInventory = [...inventoryData, newItem];
+    setInventoryData(updatedInventory);
+    localStorage.setItem("inventoryData", JSON.stringify(updatedInventory));
+
+    // Reset the form
+    setNewItem({ id: "", image: "", quantity: "", description: "" });
+  };
 
   return (
     <div className="home-container">
-      {/* <h1>Inventory Table</h1> */}
-        <Header></Header>
-      {/* Download Excel Button */}
+      <Header handleDownloadExcel={handleDownloadExcel} />
+
       <div className="download-button-container">
         <button onClick={handleDownloadExcel}>Download Inventory Excel</button>
       </div>
@@ -70,6 +96,7 @@ const HomePage = () => {
           ))}
         </tbody>
       </table>
+
     </div>
   );
 };
