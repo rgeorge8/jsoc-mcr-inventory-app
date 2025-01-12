@@ -82,7 +82,7 @@ const HomePage = () => {
         <tbody>
           {inventoryData.map((item) => (
             <tr key={item.id}>
-              <td>
+              <td>  
                 <Link to={`/item/${item.id}`}>{item.id}</Link>
               </td>
               <td>
