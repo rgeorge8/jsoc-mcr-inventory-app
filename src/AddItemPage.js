@@ -34,7 +34,7 @@ const AddItemPage = () => {
 
     setNewItem({ id: "", image: "", quantity: "", description: "" });
 
-    navigate("/");
+    navigate("/home");
   };
 
   return (

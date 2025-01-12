@@ -28,7 +28,7 @@ const ItemDetails = ({ inventoryData, setInventoryData }) => {
     setInventoryData(updatedData);
     localStorage.setItem('inventoryData', JSON.stringify(updatedData));
 
-    navigate("/");
+    navigate("/home");
   };
 
   return (
