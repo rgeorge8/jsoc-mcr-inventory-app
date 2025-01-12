@@ -1,0 +1,35 @@
+/* src/home.css */
+.add-item-page {
+    padding: 20px;
+  }
+  
+  .add-item-page h2 {
+    margin-bottom: 20px;
+  }
+  
+  .add-item-page label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .add-item-page input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-item-page button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-item-page button:hover {
+    background-color: #218838;
+  }
+  

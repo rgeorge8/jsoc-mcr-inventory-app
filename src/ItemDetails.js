@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import * as XLSX from "xlsx";
 import "./ItemDetails.css";
 
 const ItemDetails = ({ inventoryData, setInventoryData }) => {
@@ -13,18 +12,19 @@ const ItemDetails = ({ inventoryData, setInventoryData }) => {
   const [image, setImage] = useState(item.image);
 
   const handleSave = () => {
+    if (quantity < 0) {
+      alert("Quantity must be a positive number.");
+      return;
+    }
+
     const updatedData = inventoryData.map((invItem) =>
       invItem.id === item.id
         ? { ...invItem, quantity, description, image }
         : invItem
     );
-    setInventoryData(updatedData);
 
-    // Save to Excel
-    const worksheet = XLSX.utils.json_to_sheet(updatedData);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Inventory");
-    XLSX.writeFile(workbook, "inventory.xlsx");
+    setInventoryData(updatedData);
+    localStorage.setItem('inventoryData', JSON.stringify(updatedData));
 
     navigate("/");
   };
