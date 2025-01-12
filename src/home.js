@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
 import { Link } from "react-router-dom";
 import "./home.css";
+import Header from "./header";
+
 
 const HomePage = () => {
     const [inventoryData, setInventoryData] = useState([]);
@@ -33,8 +35,8 @@ const HomePage = () => {
 
   return (
     <div className="home-container">
-      <h1>Inventory Table</h1>
-
+      {/* <h1>Inventory Table</h1> */}
+        <Header></Header>
       {/* Download Excel Button */}
       <div className="download-button-container">
         <button onClick={handleDownloadExcel}>Download Inventory Excel</button>
