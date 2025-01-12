@@ -8,7 +8,10 @@ const Header = ({ handleDownloadExcel }) => {
   return (
     <header>
       <div className="logo">
-        <img src={jsoyaLogo} alt="Church Inventory App Logo" />      
+        {/* Wrap the logo with a Link */}
+        <Link to="/">
+          <img src={jsoyaLogo} alt="Church Inventory App Logo" />
+        </Link>
       </div>
       <h1>Church Inventory App</h1>
       <div className="header-actions">
@@ -22,3 +25,4 @@ const Header = ({ handleDownloadExcel }) => {
 };
 
 export default Header;
+

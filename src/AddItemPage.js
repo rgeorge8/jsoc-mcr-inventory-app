@@ -163,6 +163,12 @@ import "./AddItemPage.css";
 
 const AddItemPage = ({ inventoryData, setInventoryData }) => {
   const navigate = useNavigate();
+  const [newItem, setNewItem] = useState({
+    id: "",
+    image: "",
+    quantity: "",
+    description: "",
+  });
   const [quantity, setQuantity] = useState(0);
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
@@ -179,7 +185,9 @@ const AddItemPage = ({ inventoryData, setInventoryData }) => {
     setInventoryData(updatedInventory);
     localStorage.setItem("inventoryData", JSON.stringify(updatedInventory));
 
-    navigate("/");
+    setNewItem({ id: "", image: "", quantity: "", description: "" });
+
+    navigate("/home");
   };
 
   return (

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./home";
 import AddItemPage from "./AddItemPage";
 import ItemDetails from "./ItemDetails";
+import LoginPage from "./LoginPage";
 import "./App.css";
 
 const App = () => {
@@ -26,8 +27,12 @@ const App = () => {
   return (
     <Router>
       <Routes>
+
+        <Route path="/" element={<LoginPage />} 
+        />
+
         <Route
-          path="/"
+          path="/home"
           element={<HomePage inventoryData={inventoryData} />}
         />
         <Route
