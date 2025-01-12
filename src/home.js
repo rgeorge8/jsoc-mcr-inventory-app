@@ -63,9 +63,11 @@ const HomePage = () => {
   return (
     <div className="home-container">
       <Header handleDownloadExcel={handleDownloadExcel} />
-
-      <div className="download-button-container">
-        <button onClick={handleDownloadExcel}>Download Inventory Excel</button>
+      <div>
+        <br>
+        </br>
+        <br>
+        </br>
       </div>
 
       <table className="inventory-table">
