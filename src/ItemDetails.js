@@ -162,7 +162,7 @@ const ItemDetails = ({ inventoryData, setInventoryData }) => {
           </label>
           <div className="buttons">
             <button onClick={handleSave}>Save</button>
-            <button onClick={() => navigate("/")}>Cancel</button>
+            <button onClick={() => navigate("/home")}>Cancel</button>
           </div>
         </div>
       </div>
