@@ -1,7 +1,7 @@
 // src/AddItemPage.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./home.css";
+import "./AddItemPage.css";
 
 const AddItemPage = () => {
   const [newItem, setNewItem] = useState({

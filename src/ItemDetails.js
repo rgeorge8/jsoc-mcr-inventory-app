@@ -5,7 +5,9 @@ import "./ItemDetails.css";
 const ItemDetails = ({ inventoryData, setInventoryData }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const item = inventoryData.find((item) => item.id === parseInt(id));
+  // const item = inventoryData.find((item) => item.id === parseInt(id));
+  const item = inventoryData.find((item) => item.id === id);  // Do not parse id if it's already a string
+
 
   const [quantity, setQuantity] = useState(item.quantity);
   const [description, setDescription] = useState(item.description);
