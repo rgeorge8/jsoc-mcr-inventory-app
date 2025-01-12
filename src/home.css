@@ -1,43 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-
-
-.home-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .logout-button {
-    margin-bottom: 20px;
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .logout-button:hover {
-    background-color: #c9302c;
-  }
-  
-  .inventory-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .inventory-table th,
-  .inventory-table td {
+.inventory-table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
     border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-
-  }
-  
-  .inventory-table th {
-    background-color: #6b70f3;
-    color: white;
+    border-radius: 5px;
   }
   
