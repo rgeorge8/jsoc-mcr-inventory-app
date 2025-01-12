@@ -1,53 +1,78 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import * as XLSX from "xlsx";
+import "./ItemDetails.css";
 
-const ItemDetails = () => {
+const ItemDetails = ({ inventoryData, setInventoryData }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const item = inventoryData.find((item) => item.id === parseInt(id));
 
-  // Example data (replace with actual data source)
-  const inventoryData = [
-    { id: 1, image: "🍎", quantity: 10, description: "Apples" },
-    { id: 2, image: "🍌", quantity: 15, description: "Bananas" },
-    { id: 3, image: "🥛", quantity: 5, description: "Milk cartons" },
-  ];
-
-  const item = inventoryData.find((i) => i.id === parseInt(id));
-  const [quantity, setQuantity] = useState(item?.quantity || 0);
+  const [quantity, setQuantity] = useState(item.quantity);
+  const [description, setDescription] = useState(item.description);
+  const [image, setImage] = useState(item.image);
 
   const handleSave = () => {
-    alert(`Updated quantity for ${item.description}: ${quantity}`);
-    navigate("/"); // Redirect back to the home page
+    const updatedData = inventoryData.map((invItem) =>
+      invItem.id === item.id
+        ? { ...invItem, quantity, description, image }
+        : invItem
+    );
+    setInventoryData(updatedData);
+
+    // Save to Excel
+    const worksheet = XLSX.utils.json_to_sheet(updatedData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Inventory");
+    XLSX.writeFile(workbook, "inventory.xlsx");
+
+    navigate("/");
   };
 
-  if (!item) {
-    return <p>Item not found</p>;
-  }
-
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>Item Details</h1>
-      <p><strong>ID:</strong> {item.id}</p>
-      <p><strong>Image:</strong> {item.image}</p>
-      <p><strong>Description:</strong> {item.description}</p>
-      <div>
-        <label>
-          <strong>Quantity:</strong>
-          <input
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value))}
-            style={{ marginLeft: "10px" }}
-          />
-        </label>
+    <div className="item-details-container">
+      <h1>Edit Item: {item.id}</h1>
+      <div className="item-details-card">
+        <div className="item-image">
+          {image.startsWith("http") ? (
+            <img src={image} alt={description} />
+          ) : (
+            <span className="emoji">{image}</span>
+          )}
+        </div>
+        <div className="item-details-fields">
+          <label>
+            Quantity:
+            <input
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(parseInt(e.target.value))}
+            />
+          </label>
+          <label>
+            Description:
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </label>
+          <label>
+            Image URL (optional):
+            <input
+              type="text"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+            />
+          </label>
+          <div className="buttons">
+            <button onClick={handleSave}>Save</button>
+            <button onClick={() => navigate("/")}>Cancel</button>
+          </div>
+        </div>
       </div>
-      <button onClick={handleSave} style={{ marginTop: "20px" }}>
-        Save
-      </button>
     </div>
   );
 };
 
 export default ItemDetails;
-
-
