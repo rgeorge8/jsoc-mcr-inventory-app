@@ -7,7 +7,12 @@ const ItemDetails = ({ inventoryData, setInventoryData }) => {
   const navigate = useNavigate();
   // const item = inventoryData.find((item) => item.id === parseInt(id));
   const item = inventoryData.find((item) => item.id === id);  // Do not parse id if it's already a string
-
+ 
+  // const item = inventoryData.find((item) => {
+  //   // If item.id is a number, convert URL id to number; if item.id is a string, convert URL id to string
+  //   return item.id === (isNaN(id) ? String(id) : parseInt(id));
+  // });
+  
 
   const [quantity, setQuantity] = useState(item.quantity);
   const [description, setDescription] = useState(item.description);
