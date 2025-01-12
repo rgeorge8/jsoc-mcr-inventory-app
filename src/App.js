@@ -7,15 +7,21 @@ import ItemDetails from "./ItemDetails";
 import "./App.css";
 
 const App = () => {
-  const [inventoryData, setInventoryData] = useState([]);
+  // const [inventoryData, setInventoryData] = useState([]);
 
-  // Load inventory data from localStorage when the app loads
-  useEffect(() => {
-    const storedData = localStorage.getItem('inventoryData');
-    if (storedData) {
-      setInventoryData(JSON.parse(storedData));
-    }
-  }, []);
+  // // Load inventory data from localStorage when the app loads
+  // useEffect(() => {
+  //   const storedData = localStorage.getItem('inventoryData');
+  //   if (storedData) {
+  //     setInventoryData(JSON.parse(storedData));
+  //   }
+  // }, []);
+
+  const [inventoryData, setInventoryData] = useState(() => {
+    const storedData = localStorage.getItem("inventoryData");
+    return storedData ? JSON.parse(storedData) : [];
+  });
+  
 
   return (
     <Router>
@@ -28,7 +34,12 @@ const App = () => {
           path="/item/:id"
           element={<ItemDetails inventoryData={inventoryData} setInventoryData={setInventoryData} />}
         />
-        <Route path="/add-item" element={<AddItemPage />} />
+        {/* <Route path="/add-item" element={<AddItemPage />} /> */}
+        <Route
+          path="/add-item"
+          element={<AddItemPage inventoryData={inventoryData} setInventoryData={setInventoryData} />}
+        />
+
       </Routes>
     </Router>
   );
