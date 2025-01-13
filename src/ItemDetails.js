@@ -3,21 +3,20 @@
 // import "./ItemDetails.css";
 
 // const ItemDetails = ({ inventoryData, setInventoryData }) => {
-//   const { id } = useParams();
+//   const { id } = useParams(); // Get the item ID from the route
 //   const navigate = useNavigate();
-//   // const item = inventoryData.find((item) => item.id === parseInt(id));
-//   const item = inventoryData.find((item) => item.id === id);  // Do not parse id if it's already a string
- 
-//   // const item = inventoryData.find((item) => {
-//   //   // If item.id is a number, convert URL id to number; if item.id is a string, convert URL id to string
-//   //   return item.id === (isNaN(id) ? String(id) : parseInt(id));
-//   // });
+
+//   // Find the item (can be null if not found)
+//   const item = inventoryData.find((item) => item.id === id);
+
+//   // Initialize state unconditionally with fallback values
+//   const [quantity, setQuantity] = useState(item?.quantity || 0);
+//   const [description, setDescription] = useState(item?.description || "");
+//   const [image, setImage] = useState(item?.image || "");
+
   
 
-//   const [quantity, setQuantity] = useState(item.quantity);
-//   const [description, setDescription] = useState(item.description);
-//   const [image, setImage] = useState(item.image);
-
+//   // Handle the save operation
 //   const handleSave = () => {
 //     if (quantity < 0) {
 //       alert("Quantity must be a positive number.");
@@ -31,10 +30,15 @@
 //     );
 
 //     setInventoryData(updatedData);
-//     localStorage.setItem('inventoryData', JSON.stringify(updatedData));
+//     localStorage.setItem("inventoryData", JSON.stringify(updatedData));
 
-//     navigate("/");
+//     navigate("/home");
 //   };
+
+//   // If item is not found, render a fallback UI
+//   if (!item) {
+//     return <div>Item not found. Please check the URL or go back.</div>;
+//   }
 
 //   return (
 //     <div className="item-details-container">
@@ -74,7 +78,7 @@
 //           </label>
 //           <div className="buttons">
 //             <button onClick={handleSave}>Save</button>
-//             <button onClick={() => navigate("/")}>Cancel</button>
+//             <button onClick={() => navigate("/home")}>Cancel</button>
 //           </div>
 //         </div>
 //       </div>
@@ -83,6 +87,7 @@
 // };
 
 // export default ItemDetails;
+
 
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -100,6 +105,9 @@ const ItemDetails = ({ inventoryData, setInventoryData }) => {
   const [description, setDescription] = useState(item?.description || "");
   const [image, setImage] = useState(item?.image || "");
 
+  // State for delete confirmation
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
   // Handle the save operation
   const handleSave = () => {
     if (quantity < 0) {
@@ -116,6 +124,14 @@ const ItemDetails = ({ inventoryData, setInventoryData }) => {
     setInventoryData(updatedData);
     localStorage.setItem("inventoryData", JSON.stringify(updatedData));
 
+    navigate("/home");
+  };
+
+  // Handle the delete operation
+  const handleDelete = () => {
+    const updatedData = inventoryData.filter((invItem) => invItem.id !== item.id);
+    setInventoryData(updatedData);
+    localStorage.setItem("inventoryData", JSON.stringify(updatedData));
     navigate("/home");
   };
 
@@ -163,12 +179,26 @@ const ItemDetails = ({ inventoryData, setInventoryData }) => {
           <div className="buttons">
             <button onClick={handleSave}>Save</button>
             <button onClick={() => navigate("/home")}>Cancel</button>
+            <button
+              className="delete-button"
+              onClick={() => setShowDeleteConfirm(true)}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Confirmation Modal */}
+      {showDeleteConfirm && (
+        <div className="delete-confirm-modal">
+          <p>Are you sure you want to delete this item?</p>
+          <button onClick={handleDelete}>Yes</button>
+          <button onClick={() => setShowDeleteConfirm(false)}>No</button>
+        </div>
+      )}
     </div>
   );
 };
 
 export default ItemDetails;
-
