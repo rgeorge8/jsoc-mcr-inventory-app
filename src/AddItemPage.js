@@ -116,6 +116,8 @@ const AddItemPage = ({ inventoryData, setInventoryData }) => {
     navigate("/home");
   };
 
+
+  
   return (
     <div className="add-item-page">
       <Header />
