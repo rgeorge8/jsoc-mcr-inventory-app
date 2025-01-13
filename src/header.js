@@ -13,7 +13,7 @@ const Header = ({ handleDownloadExcel }) => {
           <img src={jsoyaLogo} alt="Church Inventory App Logo" />
         </Link>
       </div>
-      <h1>Church Inventory App</h1>
+      <h1>Church Inventory</h1>
       <div className="header-actions">
         <Link to="/add-item">
           <button>Add New Item</button>
