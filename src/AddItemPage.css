@@ -27,7 +27,7 @@
   
   .add-item-page button {
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #d9534f;
     color: white;
     border: none;
     border-radius: 4px;
@@ -35,7 +35,7 @@
   }
   
   .add-item-page button:hover {
-    background-color: #218838;
+    background-color: #c9302c;
   }
   
   /* Add this to your home.css */
