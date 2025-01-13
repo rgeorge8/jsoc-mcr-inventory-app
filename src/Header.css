@@ -29,7 +29,7 @@ header {
   
   header button {
     padding: 10px 20px;
-    background-color: #85abd3;
+    background-color: #d9534f;
     color: white;
     border: none;
     border-radius: 4px;
@@ -37,6 +37,20 @@ header {
   }
   
   header button:hover {
-    background-color: #0056b3;
+    background-color: #c9302c;
+  }
+  
+  .header-actions .logout-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .header-actions .logout-button:hover {
+    background-color: #e60000;
   }
   
