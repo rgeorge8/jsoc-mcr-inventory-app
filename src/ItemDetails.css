@@ -78,3 +78,40 @@
     background-color: #c9302c;
   }
   
+
+  .buttons .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .buttons .delete-button:hover {
+    background-color: darkred;
+  }
+  
+  .delete-confirm-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .delete-confirm-modal p {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  
+  .delete-confirm-modal button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
