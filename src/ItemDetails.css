@@ -1,0 +1,117 @@
+.item-details-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+  }
+  
+  .item-details-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .item-image {
+    margin-bottom: 20px;
+  }
+  
+  .item-image img {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .item-image .emoji {
+    font-size: 5rem;
+  }
+  
+  .item-details-fields {
+    width: 100%;
+  }
+  
+  .item-details-fields label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .item-details-fields input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:last-child {
+    background-color: #d9534f;
+  }
+  
+  button:last-child:hover {
+    background-color: #c9302c;
+  }
+  
+
+  .buttons .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .buttons .delete-button:hover {
+    background-color: darkred;
+  }
+  
+  .delete-confirm-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .delete-confirm-modal p {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  
+  .delete-confirm-modal button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  

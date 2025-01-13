@@ -1,0 +1,24 @@
+.inventory-table img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+
+
+  /* Centering the search bar and making it larger */
+input[type="text"] {
+  width: 60%;  /* Adjust the width as needed */
+  padding: 12px;  /* Adds padding to make the input box larger */
+  font-size: 18px;  /* Increases the font size inside the input */
+  margin: 20px auto;  /* Centers the input horizontally and adds vertical margin */
+  display: block;  /* Ensures the input is block-level for centering */
+  border-radius: 8px;  /* Optional: Adds rounded corners to the input */
+  border: 2px solid #ccc;  /* Adds a border to the input */
+}
+
+div {
+  text-align: center;  /* Centers the content (including search bar) inside the div */
+}
