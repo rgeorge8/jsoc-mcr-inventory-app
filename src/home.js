@@ -124,9 +124,9 @@ const HomePage = ({ inventoryData, setInventoryData }) => {
         <thead>
           <tr>
             <th>ID</th>
+            <th>Description</th>
             <th>Image</th>
             <th>Quantity</th>
-            <th>Description</th>
             <th>QR Code</th>
           </tr>
         </thead>
@@ -136,6 +136,7 @@ const HomePage = ({ inventoryData, setInventoryData }) => {
               <td>
                 <Link to={`/item/${item.id}`}>{item.id}</Link>
               </td>
+              <td>{item.description}</td>
               <td>
                 {item.image ? (
                   <img src={item.image} alt={item.description} />
@@ -144,7 +145,6 @@ const HomePage = ({ inventoryData, setInventoryData }) => {
                 )}
               </td>
               <td>{item.quantity}</td>
-              <td>{item.description}</td>
               <td>
                 <QRCodeCanvas value={`${window.location.origin}/item/${item.id}`} size={64} />
               </td>
