@@ -17,4 +17,4 @@ const app = initializeApp(firebaseConfig);
 
 // Firestore reference
 export const db = getFirestore(app);
-export default app;
+//export default app;

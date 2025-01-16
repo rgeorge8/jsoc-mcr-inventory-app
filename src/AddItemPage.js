@@ -180,7 +180,6 @@ const AddItemPage = ({ setInventoryData }) => {
 
   const handleAddItem = async () => {
     const newItem = {
-      id: uuidv4(), // Unique identifier
       quantity,
       description,
       image,

@@ -47,20 +47,20 @@
 
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore"; // Import Firestore functions
+// import { collection, getDocs } from "firebase/firestore"; // Import Firestore functions
 import HomePage from "./home";
 import AddItemPage from "./AddItemPage";
 import ItemDetails from "./ItemDetails";
 import LoginPage from "./LoginPage";
 import { db } from "./firebase"; // Import Firestore DB
 import "./App.css";
+import { collection, getDocs, onSnapshot } from "firebase/firestore";
+
 
 const App = () => {
   const [inventoryData, setInventoryData] = useState([]);
 
   useEffect(() => {
-
-    localStorage.clear();
 
     const fetchInventory = async () => {
       const querySnapshot = await getDocs(collection(db, "inventory"));
@@ -69,6 +69,14 @@ const App = () => {
     };
 
     fetchInventory();
+
+    // Listen for changes in the collection
+    const unsubscribe = onSnapshot(collection(db, "inventory"), (snapshot) => {
+      const inventoryItems = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setInventoryData(inventoryItems);
+    });
+
+    return () => unsubscribe();
   }, []);
 
   return (
