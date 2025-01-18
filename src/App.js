@@ -47,7 +47,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { collection, getDocs } from "firebase/firestore"; // Import Firestore functions
 import HomePage from "./home";
 import AddItemPage from "./AddItemPage";
 import ItemDetails from "./ItemDetails";
@@ -72,7 +71,7 @@ const App = () => {
 
     // Listen for changes in the collection
     const unsubscribe = onSnapshot(collection(db, "inventory"), (snapshot) => {
-      const inventoryItems = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const inventoryItems = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setInventoryData(inventoryItems);
     });
 
